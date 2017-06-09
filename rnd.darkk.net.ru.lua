@@ -1,7 +1,7 @@
 -- uses PowerDNS recursor 4.x, does not work with 3.x
 
 function getnum ( domain )
-    -- FIXME: it's case-sensitive, it MUST ignore case
+    domain = domain:lower()
     ttl, count = string.match(domain, '^(%d+)%.(%d+)%.rnd%.darkk%.net%.ru%.$')
     if ttl ~= nil then
         return tonumber(ttl), tonumber(count)
