@@ -44,7 +44,7 @@ function preresolve ( dq )
                 end
                 dq.rcode = 0
                 for ndx = 1, count, 1 do
-                    dq:addAnswer(pdns.AAAA, string.format("2a02:%x:%x:%x::42", math.random(0, 65535), math.random(0, 65535), math.random(0, 65535)), ttl)
+                    dq:addAnswer(pdns.AAAA, string.format("2a02:%x:%x:%x:%x:%x:%x:%x", math.random(0, 65535), math.random(0, 65535), math.random(0, 65535), math.random(0, 65535), math.random(0, 65535), math.random(0, 65535), math.random(0, 65535)), ttl)
                 end
             elseif dq.qtype == pdns.TXT then
                 dq.rcode = 0
