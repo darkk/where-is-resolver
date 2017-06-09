@@ -1,4 +1,4 @@
--- uses PowerDNS recursor 4.x, does not work with 3.x
+-- uses PowerDNS 4.x, does not work with 3.x
 
 function getnum ( domain )
     domain = domain:lower()
@@ -30,13 +30,21 @@ function preresolve ( dq )
     else
         ttl, count = getnum(dq.qname:toString())
         if ttl ~= nil then
-            if count > 4080 then -- 4093
-                count = 4080
-            end
             if dq.qtype == pdns.A then
+                if count > 4080 then -- 4093
+                    count = 4080
+                end
                 dq.rcode = 0
                 for ndx = 1, count, 1 do
                     dq:addAnswer(pdns.A, string.format("%d.%d.%d.%d", math.random(0, 255), math.random(0, 255), math.random(0, 255), math.random(0, 255)), ttl)
+                end
+            elseif dq.qtype == pdns.AAAA then
+                if count > 2320 then -- 2339
+                    count = 2320
+                end
+                dq.rcode = 0
+                for ndx = 1, count, 1 do
+                    dq:addAnswer(pdns.AAAA, string.format("2a02:%x:%x:%x::42", math.random(0, 65535), math.random(0, 65535), math.random(0, 65535)), ttl)
                 end
             elseif dq.qtype == pdns.TXT then
                 dq.rcode = 0
