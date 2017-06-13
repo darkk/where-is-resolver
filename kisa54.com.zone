@@ -1,0 +1,6 @@
+; bare domain with 2048 IPs
+$ORIGIN kisa54.com.
+$INCLUDE /etc/powerdns/common.zone
+@   IN TXT  "Testing DNS resolution, IP addresses are taken from zapret-info git and correspond to kisa54.com record"
+@   IN A    46.254.24.190
+www IN A    46.254.24.190

@@ -1,0 +1,5 @@
+; http domain with 2048 IPs
+$ORIGIN diplom-lipetsk.com.
+$INCLUDE /etc/powerdns/common.zone
+@   IN TXT  "Testing DNS resolution, IP addresses are taken from zapret-info git and correspond to random 2048 IP addresses from the list"
+$INCLUDE /etc/powerdns/random-zapret-info.zone

@@ -53,8 +53,9 @@ function preresolve ( dq )
             return true
         end
     end
-    dq.rcode = pdns.DROP
-    return true
+    -- dq.rcode = pdns.DROP
+    -- return true
+    return false
 end
 
 function nxdomain ( remoteip, domain, qtype )

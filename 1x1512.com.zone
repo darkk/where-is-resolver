@@ -1,0 +1,11 @@
+; https domain with small set of IPs
+$ORIGIN 1x1512.com.
+$INCLUDE /etc/powerdns/common.zone
+@   IN TXT  "Testing DNS resolution, IP addresses are taken from zapret-info git and correspond to 1x1512.com record"
+@   IN A    46.28.206.172
+@   IN A    46.28.207.29
+@   IN A    91.228.155.74
+@   IN A    94.242.232.77
+@   IN A    94.242.237.253
+@   IN A    95.213.193.166
+@   IN A    95.213.217.98

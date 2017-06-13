@@ -1,0 +1,20 @@
+- hosts: rnd-zone.darkk.net.ru
+  become: false
+  remote_user: root
+  tasks:
+    - copy: src={{ item }} dest=/etc/powerdns/{{ item }} mode=0644
+      with_items:
+        - rnd.darkk.net.ru.lua
+        - recursor.conf
+        - 1x1512.com.zone
+        - 1x1513.com.zone
+        - kisa54.com.zone
+        - common.zone
+        - cool-sino.com.zone
+        - diplom-lipetsk.com.zone
+        - random-zapret-info.zone
+        - rnd.darkk.net.ru.zone
+        - zenitbet66.com.zone
+    - service: name=pdns-recursor state=restarted
+
+# vim:set tabstop=2 softtabstop=2 shiftwidth=2:

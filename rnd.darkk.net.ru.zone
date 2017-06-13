@@ -1,0 +1,4 @@
+$ORIGIN rnd.darkk.net.ru.
+$TTL 60
+@   IN SOA  rnd-zone.darkk.net.ru. leon.darkk.net.ru. ( 2017060801 95 105 115 1 )
+@   IN NS   rnd-zone.darkk.net.ru.

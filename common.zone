@@ -1,0 +1,5 @@
+$TTL 60
+@   IN SOA  rnd-zone.darkk.net.ru. leon.darkk.net.ru. ( 2017060801 95 105 115 10 )
+@   IN NS   rnd-zone-v4.darkk.net.ru.
+@   IN NS   rnd-zone-v6.darkk.net.ru.
+@   IN MX   42 see.txt.and.soa.record.for.this.domain.

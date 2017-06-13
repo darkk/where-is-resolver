@@ -1,0 +1,8 @@
+; http domain with small set of IPs
+$ORIGIN cool-sino.com.
+$INCLUDE /etc/powerdns/common.zone
+@   IN TXT  "Testing DNS resolution, IP addresses are taken from zapret-info git and correspond to cool-sino.com record"
+@   IN A    85.25.13.97
+@   IN A    85.25.252.232
+www IN A    85.25.13.97
+www IN A    85.25.252.232
