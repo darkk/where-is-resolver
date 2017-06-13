@@ -1,0 +1,7 @@
+#!/bin/bash -x
+slug=$1
+make "${slug}-without-soa" || exit 1
+mkdir -p whois-${slug}
+for h in $(< "${slug}-without-soa" awk -F. '{printf "%s.%s\n", $(NF-1), $(NF)}' | shuf); do
+    whois $h >whois-${slug}/$h
+done
