@@ -1,0 +1,23 @@
+#!/bin/bash
+
+from="--from-country RU --probes 500"
+ripe-atlas measure traceroute --no-report --description "TCP v4 test" $from --protocol TCP --port 80 --packets 5 --af 4 --target 139.162.172.21
+
+from="--from-measurement xxx --probes 500"
+ripe-atlas measure traceroute --no-report --description "TCP v4 test" $from --protocol TCP --port 80 --packets 5 --af 4 --target 74.207.244.174
+ripe-atlas measure traceroute --no-report --description "TCP v4 test" $from --protocol TCP --port 80 --packets 5 --af 4 --target 74.82.3.171
+
+ripe-atlas measure traceroute --no-report --description "TCP v4 ctrl" $from --protocol TCP --port 80 --packets 5 --af 4 --target 139.162.172.20
+ripe-atlas measure traceroute --no-report --description "TCP v4 ctrl" $from --protocol TCP --port 80 --packets 5 --af 4 --target 74.207.244.175
+ripe-atlas measure traceroute --no-report --description "TCP v4 ctrl" $from --protocol TCP --port 80 --packets 5 --af 4 --target 74.82.3.170
+
+from="--from-country RU --probes 100 --include-tag=system-ipv6-works"
+ripe-atlas measure traceroute --no-report --description "TCP v6 test" $from --protocol TCP --port 80 --packets 5 --af 6 --target 2a01:7e01::f03c:91ff:fe0a:f4eb
+
+from="--from-measurement xxx --probes 100"
+ripe-atlas measure traceroute --no-report --description "TCP v6 test" $from --protocol TCP --port 80 --packets 5 --af 6 --target 2a01:7e01:e001:7c:494c:6f76:6552:4b4e
+ripe-atlas measure traceroute --no-report --description "TCP v6 test" $from --protocol TCP --port 80 --packets 5 --af 6 --target 2600:3c01::f03c:91ff:fe96:e5f7
+
+ripe-atlas measure traceroute --no-report --description "TCP v6 ctrl" $from --protocol TCP --port 80 --packets 5 --af 6 --target 2a01:7e01::13
+ripe-atlas measure traceroute --no-report --description "TCP v6 ctrl" $from --protocol TCP --port 80 --packets 5 --af 6 --target 2a01:7e01:e001:7c::42
+ripe-atlas measure traceroute --no-report --description "TCP v6 ctrl" $from --protocol TCP --port 80 --packets 5 --af 6 --target 2600:3c01::335
