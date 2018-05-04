@@ -23,6 +23,12 @@ function preresolve ( dq )
             dq:addAnswer(pdns.TXT, "\"Return IP address of client sending the query\"", 300)
         end
         return true
+    elseif dq.qname:equal("time.rnd.darkk.net.ru.") then
+        if dq.qtype == pdns.TXT then
+            dq.rcode = 0
+            dq:addAnswer(pdns.TXT, string.format("\"%d\"", os.time()), 1)
+        end
+        return true
     elseif dq.qname:equal("rnd.darkk.net.ru.") and dq.qtype == pdns.TXT then
         dq.rcode = 0
         dq:addAnswer(pdns.TXT, "\"rnd.darkk.net.ru. is zone for testing OONI tools, don't abuse it\"", 300)
